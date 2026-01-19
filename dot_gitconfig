@@ -1,0 +1,117 @@
+# ================================
+# 👤 User
+# ================================
+[user]
+    name = "Ilmir Karimov"
+    email = ilmir.karimov.dev@gmail.com
+
+# ================================
+# 🌱 Init
+# ================================
+[init]
+    defaultBranch = main
+
+# ================================
+# 🛠 Core Git Settings
+# ================================
+[core]
+    autocrlf = input
+    pager = delta
+    editor = nvim
+	excludesfile = /home/itiro/.gitignore_global
+
+[color]
+    ui = auto
+
+[push]
+    default = simple
+
+[pull]
+    rebase = false
+
+[merge]
+    tool = nvimdiff
+
+[mergetool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE" "$MERGED"
+    trustExitCode = true
+
+[advice]
+    skippedCherryPicks = false
+
+[interactive]
+    diffFilter = delta --color-only
+
+[rebase]
+	autosquash = true
+
+# ================================
+# 🎨 Delta: нейтральный фон + подчёркнутые in-word и ярче маркеры
+# ================================
+[delta]
+    # Display and navigation
+    side-by-side = true
+    navigate = true
+    line-numbers = true
+    keep-plus-minus-markers = true
+    hyperlinks = true
+    true-color = always
+
+    # Theme and syntax
+    theme = "Catppuccin Frappe"
+    syntax-theme = Dracula
+
+    # File and header styling
+    file-style = bold "#9aa0a6"
+    file-decoration-style = none
+    hunk-header-style = box bold syntax
+    hunk-header-decoration-style = box
+
+    # Line number formats
+    line-numbers-left-format = "{nm:>4} │"
+    line-numbers-right-format = "{np:>4} │"
+    line-numbers-zero-style = syntax
+
+    # Neutral/unchanged lines
+    zero-style = syntax
+    highlight-removed = true
+
+    # Фоновые оттенки — нейтральные, спокойные
+    minus-style = syntax bold "#2f2f2f"
+    plus-style = syntax bold "#2f3130"
+
+    # Emph — подчёркнутые и полужирные акценты для intra-word
+    minus-emph-style = syntax underline bold "#bf8f8f"
+    minus-emph2-style = syntax underline "#cfa0a0"
+    plus-emph-style = syntax underline bold "#8fbf9a"
+    plus-emph2-style = syntax underline "#9fd6b0"
+
+    # Маркеры — чуть ярче, но всё ещё пастельные и мягкие
+    minus-marker-style = syntax bold "#e08f8f"
+    plus-marker-style = syntax bold "#7fe0a8"
+
+# ================================
+# 🔧 Delta feature profiles
+# ================================
+[delta "features"]
+    ide = true
+    unobtrusive = true
+
+[delta "ide"]
+    side-by-side = true
+    line-numbers = true
+    hunk-header-style = box bold syntax
+    minus-style = syntax bold "#2f2f2f"
+    plus-style = syntax bold "#2f3130"
+    minus-emph-style = syntax underline bold "#bf8f8f"
+    plus-emph-style = syntax underline bold "#8fbf9a"
+    minus-marker-style = syntax bold "#e08f8f"
+    plus-marker-style = syntax bold "#7fe0a8"
+
+[delta "unobtrusive"]
+    minus-style = syntax "#2b2b2b"
+    plus-style = syntax "#2b2d2c"
+    hunk-header-style = syntax bold
+
+[alias]
+	s = status

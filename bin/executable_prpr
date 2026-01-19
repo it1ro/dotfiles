@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -e
+
+ROOT_DIR="${1:-.}"
+
+print_file() {
+  local file="$1"
+  echo "===== FILE: $file ====="
+  cat "$file"
+  echo -e "\n"
+}
+
+export -f print_file
+
+find "$ROOT_DIR" \
+  -type d -name ".git" -prune -false -o \
+  -type f \
+  ! -name "*.gem" \
+  ! -name "*.md" \
+  ! -name "*.txt" \
+  ! -name "*.lock" \
+  ! -name "*.rbs" \
+  ! -name "LICENSE*" \
+  ! -name "CHANGELOG*" \
+  ! -name "README*" \
+  -print0 |
+  while IFS= read -r -d '' file; do
+    # Skip binary files using MIME detection
+    if file --mime "$file" | grep -q "charset=binary"; then
+      continue
+    fi
+
+    # Print only code files
+    print_file "$file"
+  done
