@@ -110,7 +110,7 @@ autoload -Uz compinit && compinit
 # ============================
 #  Powerlevel10k
 # ============================
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source "$HOME/powerlevel10k/powerlevel10k.zsh-theme"
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # ============================
@@ -184,3 +184,4 @@ alias cha="chezmoi add"
 alias chd="cd ~/.local/share/chezmoi"
 alias ld="lazygit"
 alias ld="lazydocker"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
