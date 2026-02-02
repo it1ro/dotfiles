@@ -96,7 +96,7 @@ if (( $+commands[zoxide] )); then
 fi
 
 # autosuggestions
-if (( $+commands[zsh-autosuggestions] )); then
+if [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
   ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -176,12 +176,11 @@ alias gsu="git submodule update --remote --merge"
 
 alias ls="eza"
 alias dl="cd /home/itiro/dl"
-alias reapoer="Exec=env GDK_BACKEND=x11 reaper"
+alias reaper="Exec=env GDK_BACKEND=x11 reaper"
 alias tree-clean="tree -I 'node_modules|.git|tmp|cache|storage|dist|build|.vitepress|.temp|vendor|coverage|log|pids|sockets'"
 alias inst="sudo pacman -S"
 alias che="chezmoi"
 alias cha="chezmoi add"
 alias chd="cd ~/.local/share/chezmoi"
 alias ld="lazygit"
-alias ld="lazydocker"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+alias lzd="lazydocker"
