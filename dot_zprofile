@@ -1,7 +1,3 @@
 # ~/.zprofile
 # Загружается ТОЛЬКО для login shell
-
-if [[ -z "$TMUX" ]] && [[ "$TERM_PROGRAM" != "vscode" ]] && (( $+commands[tmux] )); then
-  tmux attach-session -d || tmux new-session
-fi
-
+# Автозапуск tmux вынесен в .zshrc (единственное место, с exec)
