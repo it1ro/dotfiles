@@ -1,28 +1,18 @@
 [env]
 TERM = "xterm-256color"
+COLORTERM = "truecolor"
 
 [window]
-# Критично: НЕ fullscreen, НЕ borderless fullscreen
 startup_mode = "Maximized"
-decorations = "None"
-
-# Можно оставить, если нравится
-resize_increments = true
-padding = { x = 0, y = 0 }
+decorations = "Full"
+resize_increments = false
+padding = { x = 8, y = 6 }
 dynamic_title = true
-
-# Лёгкая прозрачность окна.
-# Нужна для того, чтобы держать браузер и терминал на одном экране:
-# читаю документацию или код в браузере → печатаю команды в Alacritty,
-# при этом фон слегка просвечивает, но текст остаётся полностью читаемым.
-opacity = 0.94
-
-# Если включён blur в GNOME/KDE, прозрачность становится мягкой и не мешает глазам.
-# Без blur тоже работает, но blur делает фон более однородным.
+opacity = 0.92
 blur = true
 
 [scrolling]
-history = 100000
+history = 50000
 multiplier = 3
 
 [font]
@@ -57,7 +47,7 @@ cursor = "#ffffff"
 text = "#000000"
 
 [colors.selection]
-background = "#44475a"
+background = "#3a3f4b"
 text = "CellForeground"
 
 [colors.normal]
@@ -84,5 +74,9 @@ white   = "#ffffff"
 bindings = [
   { key = "V", mods = "Control|Shift", action = "Paste" },
   { key = "C", mods = "Control|Shift", action = "Copy" },
-  { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" }
+  { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
+
+  { key = "Equals", mods = "Control", action = "IncreaseFontSize" },
+  { key = "Minus", mods = "Control", action = "DecreaseFontSize" },
+  { key = "Key0", mods = "Control", action = "ResetFontSize" }
 ]
